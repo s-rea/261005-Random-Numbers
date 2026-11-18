@@ -1,0 +1,28 @@
+html<!doctype html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Random Number Generateor</title>
+</head>
+<body>
+  <!-- 1. The Button -->
+  <button id="GenerateBtn">Generate Random Number</button>
+
+  <!-- 2. Where the number will be printed -->
+  <p>Your Number: <span id="numberDisplay">0</span></p>
+
+  <!-- 3. The JavaScript -->
+  <script>
+    // Select the button and the display elements from the DOM
+    const button = document.getElementById("generateBtn");
+    const display = document.getElementById("numberDisplay");
+
+    //add a click event listener to the button
+    button.addEventListener("click", () => {
+      // generate a random numeber between 1 and 100
+      const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+      //print number on screen
+      display.textContent = randomNumber;
+    });
+  </script>
+</body>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Element Selector</title>
+  </head>
+  <body>
+    <button id="pickButton">Pick Random Note</button>
+    <div id="result">Click the button to start</div>
+
+    <script>
+      //1. Define the array of choices
+      const midPitches = [60, 62, 63, 67, 69, 72];
+
+      //2. Create the random picker function
+      const randomPitch = function () {
+        let randomMidiNote =
+          midPitches[Math.floor(Math.random() * midPitches.length)];
+
+        let newFreq = 440 * 2 ** ((randomMidiNote - 69) / 12);
+
+        return newFreq;
+      };
+
+      //3. Set up references to teh HTML elemenets
+      const button = document.getElementById("pickButton");
+      const resultDisplay = document.getElementById("result");
+
+      //4. Trigger the dunction on click and print the result
+      button.addEventListener("click", function () {
+        const randomChoice = randomPitch(midPitches);
+        resultDisplay.textContent = randomChoice;
+      });
+    </script>
+  </body>
+</html>
